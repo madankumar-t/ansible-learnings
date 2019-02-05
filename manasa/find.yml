@@ -1,0 +1,17 @@
+# playbook with find module
+---
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  tasks:
+  - name: creating a file
+    shell: touch /tmp/one.txt
+
+  - name: listing files
+    shell: ls -lrta > /tmp/two.txt
+
+  - name: deleting a file
+    find:
+     paths: /tmp/one.txt
+     age: 2d
