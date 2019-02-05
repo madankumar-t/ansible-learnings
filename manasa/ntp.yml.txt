@@ -1,0 +1,14 @@
+#playbook to start ntpd service
+---
+- hosts: localhost
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: install ntp
+    yum:
+     name: ntp
+     state: present
+  - name: starting ntp service
+    service:
+       name: "ntpd"
+       state: "restarted"

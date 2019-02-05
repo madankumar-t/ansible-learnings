@@ -1,0 +1,10 @@
+# Playbook for shell command
+---
+- hosts: all
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: list the no of cpu
+    shell: lscpu > /tmp/cpu.txt
+  - name: free space
+    shell: free -g >  free.txt

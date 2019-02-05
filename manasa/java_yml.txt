@@ -1,0 +1,7 @@
+# playbook for installing java
+---
+ - hosts: all
+   tasks:
+    - yum:
+        name: java
+        state: installed

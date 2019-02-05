@@ -1,0 +1,36 @@
+
+# playbook for installing java
+---
+ - hosts: all
+   tasks:
+    - yum:
+        name: java
+        state: installed
+[manasa@cm .ssh]$ cat jdk_playbook
+cat: jdk_playbook: No such file or directory
+[manasa@cm .ssh]$ cat jdk_playbook.yml
+---
+- hosts: localhost
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: uninstall open jdk
+    yum:
+      name: '*openjdk*'
+      state: absent
+
+  - name: Download the oracle JDK 1.8u192 RPM
+    get_url:
+       url: "https://download.oracle.com/otn-pub/java/jdk/8u202-b08/1961070e4c9b4e26a04e7f5a083f551e/jdk-8u202-linux-x64.rpm"
+       dest: /tmp/jdk-8u202-linux-x64.rpm
+       headers: 'Cookie:oraclelicense=accept-securebackup-cookie'
+
+
+  - name: Installing Oracle Java8u192-linux-x64 via RPM
+    yum:
+      name: /tmp/jdk-8u202-linux-x64.rpm
+      state: present
+#  - name: Clean up the dowload jdk from /tmp
+#    file:
+#      state: absent
+#      path: /tmp/jdk-8u202-linux-x64.rpm
