@@ -1,0 +1,12 @@
+
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  tasks:
+  - name: disable firewalld perminently
+    firewalld:
+      port: 8081/tcp
+      permanent: yes
+      state: disabled

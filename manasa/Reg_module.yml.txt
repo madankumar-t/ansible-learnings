@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  gather_facts: no
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: get the list of files
+      command: ls -l
+      register: outputlist
+    - debug:
+        msg: "{{ outputlist.stdout_lines }}"
