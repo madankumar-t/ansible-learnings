@@ -1,0 +1,21 @@
+---
+   - hosts: localhost
+     become_method: yes
+     gather_facts: no
+
+     tasks: 
+     
+     - name: testign hanlders 
+       yum: 
+         name: nginx
+         state: present
+       notify:
+         - start nginx
+     handlers:
+     - name: start nginx
+       service:
+         name: nginx
+         state: reloaded
+
+#       ignore_errors: yes
+       

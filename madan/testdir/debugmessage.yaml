@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+
+    # emit a debug message containing the content of each file.
+   - debug:
+         msg: "{{ item }}"
+     with_file:
+       - 1.txt 
+       - 2.txt
+       - 3.txt

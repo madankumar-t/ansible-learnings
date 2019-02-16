@@ -1,0 +1,12 @@
+---
+   - hosts: localhost
+     become_method: yes
+     gather_facts: no
+
+     tasks: 
+     - name:  templates
+       copy:
+         src: /tmp/hosts.tmp
+         dest: /etc/hosts
+        #  register: output
+  #- debug: msg= "{{ output }}"
