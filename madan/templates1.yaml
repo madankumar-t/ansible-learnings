@@ -1,8 +1,10 @@
 ---
+   # this playbook is used to copy template files 
    - hosts: localhost
      become_method: yes
      gather_facts: no
-
+   
+   # using copy module to copy the template
      tasks: 
      - name:  templates
        copy:

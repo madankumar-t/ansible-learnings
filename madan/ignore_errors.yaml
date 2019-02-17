@@ -1,4 +1,5 @@
 --- 
+   # THis playbook is used to learn ignore erros while playbook execution
    - hosts: localhost
      become_method: yes
      gather_facts: no

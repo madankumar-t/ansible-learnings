@@ -1,4 +1,5 @@
 ---
+   # this playbook is used to learn handlers usage 
    - hosts: localhost
      become_method: yes
      gather_facts: no
@@ -9,9 +10,9 @@
        yum: 
          name: nginx
          state: present
-       notify:
+       notify:           # creatig handler 
          - start nginx
-     handlers:
+     handlers:           # using handler
      - name: start nginx
        service:
          name: nginx
