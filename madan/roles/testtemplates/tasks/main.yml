@@ -1,0 +1,10 @@
+---
+# tasks file for testtemplates
+#
+- name: copy templates
+  template:
+    src: templates/{{ item.templatefilename }}
+    dest: /home/deploy/test_templates
+
+  with_items: 
+    - "{{ templatefile }}"

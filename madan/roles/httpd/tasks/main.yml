@@ -1,0 +1,8 @@
+---
+# tasks file for httpd
+- name: install services
+  yum:
+    name: "{{ item.servicename }}"
+    state: present
+  with_items:
+    - "{{ packages }}"

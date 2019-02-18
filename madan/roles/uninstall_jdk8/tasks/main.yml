@@ -1,0 +1,10 @@
+---
+# tasks file for uninstall_jdk8
+#
+
+ - name: remove jdk8
+   yum:
+     name: '*jdk*'
+     state: absent
+  
+# - debug: msg= "{{ uninstall role executed }}"

@@ -1,0 +1,6 @@
+---
+# vars file for httpd
+packages:
+  - { servicename: 'httpd' }
+  - { servicename: 'tar' }
+  - { servicename: 'zip' }
