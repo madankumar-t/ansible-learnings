@@ -1,0 +1,10 @@
+Components of a role 
+
+1. Defaults : data about the application / default variable will be stored , which we can use when we use templates
+2. files : static files are stored here which need to be added to the host machine 
+3. handlers : tasks which are based on some actions.  in case my httpd.conf changes it should trigger service restart 
+4. meta : as the name shows it will provide information about the role author name, supported platforms , dependencies 
+5. tasks : core logic will be stored here , installing package , copying files etc
+6. templates : similar to files except that template support modification, jinga2 template language
+7. vars : both vars and defaults stores variables, variable stored under var got higher priority , difficult to override
+execution starts from tasks main.yaml file , we can include multiple yaml files and can include in main.yaml file

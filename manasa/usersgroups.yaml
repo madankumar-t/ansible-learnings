@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  gather_facts: no
+
+  tasks:
+   - name: add users & groups
+     users:
+        name: "{{ item_name }}"
+        state: present
+     groups: "{{ item_groups }}"
+     with_items:
+           - [ name: '' , groups: '' ]
+           - [ name: '' , grups: '' ]
