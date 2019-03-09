@@ -1,0 +1,13 @@
+Ansible encrypt using python libraries 
+
+ansible-vault create secret.yaml
+ansible-vault decrypt secret.yaml
+ansible-vault create secret.yaml
+ansible-vault encrypt secret.yaml
+ansible-vault view secret.yaml
+ansible-vault edit secret.yaml
+ansible-vault rekey secret.yaml
+ansible-vault decrypt secret.yaml --output=nosecret.yaml
+ansible-playbook <playbbok name> --ask-vault-pass 
+ansible-playbook <playbbok name> --vault-passwordfile <secret.yaml>
+
